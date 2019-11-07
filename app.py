@@ -8,7 +8,7 @@ from datetime import timedelta
 
 app = Flask(__name__)
 
-@app.route('/user/<userphrase>')
+@app.route('/user/<userphrase>', methods=['GET'])
 def getAirQuality(userphrase):
 	inputtext = userphrase
 	stationId = station(inputtext)
