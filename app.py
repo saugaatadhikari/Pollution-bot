@@ -1,5 +1,6 @@
 # main program
 from flask import Flask
+import os
 import json
 import requests
 from datetime import datetime
