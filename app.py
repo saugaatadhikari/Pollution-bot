@@ -34,7 +34,7 @@ def getAirQuality(userphrase):
 def timeCalculate(dataTaken):
 	dataTime = dataTaken[0] + " " + dataTaken[1].split('.')[0]
 	datetime_object = datetime.strptime(dataTime,'%Y-%m-%d %H:%M:%S')
-	d1 = datetime_object + timedelta(hours=5,minutes=15)
+	d1 = datetime_object + timedelta(hours=5,minutes=45)
 	return d1
 
 def conclusion(pm2):
