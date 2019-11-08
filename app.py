@@ -29,7 +29,12 @@ def getAirQuality(userphrase):
 	diff = relativedelta(currentTime, d1)
 	dataMessages = dataMessage(diff)
 	apiDataExtracted ="The latest Air Quality data of " + stationName +" is: \n" + tsp + pm1 + pm25 + pm10 + "\n" + conclusion(pm2) + "\n"+ dataMessages+ "(" + str(d1) + ")" 
-	return apiDataExtracted
+	messageFinal ={
+ 		"messages": [
+   			{"text": apiDataExtracted },
+ 				]
+	}
+	return messageFinal
 
 def timeCalculate(dataTaken):
 	dataTime = dataTaken[0] + " " + dataTaken[1].split('.')[0]
