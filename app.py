@@ -8,9 +8,7 @@ from dateutil.relativedelta import relativedelta
 from datetime import timedelta
 
 app = Flask(__name__)
-PORT = int(os.environ.get('PORT', 5000))
-HOST = '127.0.0.1'
-DEBUG_MODE = True
+
 @app.route('/user/<userphrase>')
 def getAirQuality(userphrase):
 	inputtext = userphrase
@@ -128,7 +126,9 @@ def station(original):
 	return stationId
 
 
-
+@app.route('/')
+def index():
+	return "<h1> Welcome to our Server <h1>"
 
 if __name__ == '__main__':
-	app.run(debug=DEBUG_MODE, host=HOST, port=PORT)
+	app.run(threaded=True, port=5000)
