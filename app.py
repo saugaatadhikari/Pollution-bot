@@ -20,7 +20,7 @@ def getAirQuality(userphrase):
 		tsp = "TSP : "+ str(apidata["result"][0]["params"]["tsp"][0]["value"]) + "\n"
 		pm1 = "Pm1 : " + str(apidata["result"][0]["params"]["pm1"][0]["value"])+ "\n"
 		pm2 = apidata["result"][0]["params"]["pm1"][0]["value"]
-		pm25 = "Pm25 : " + str(pm2)+ "\n"
+		pm25 = "Pm2.5 : " + str(pm2)+ "\n"
 		pm10 = "Pm10 : " + str(apidata["result"][0]["params"]["pm10"][0]["value"])+ "\n"
 		dataTaken = apidata["result"][0]["params"]["pm10"][0]["datetime"].split('T')
 		d1 = timeCalculate(dataTaken)
