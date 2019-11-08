@@ -17,11 +17,18 @@ def getAirQuality(userphrase):
 	response = requests.get(url)
 	apidata = response.json()
 	stationName = str(apidata["result"][0]["stationName"])
-	tsp = "TSP : "+ str(apidata["result"][0]["params"]["tsp"][0]["value"]) + "\n"
-	pm1 = "Pm1 : " + str(apidata["result"][0]["params"]["pm1"][0]["value"])+ "\n"
-	pm2 = apidata["result"][0]["params"]["pm1"][0]["value"]
-	pm25 = "Pm25 : " + str(apidata["result"][0]["params"]["pm25"][0]["value"])+ "\n"
-	pm10 = "Pm10 : " + str(apidata["result"][0]["params"]["pm10"][0]["value"])+ "\n"
+	try :
+		tsp = "TSP : "+ str(apidata["result"][0]["params"]["tsp"][0]["value"]) + "\n"
+		pm1 = "Pm1 : " + str(apidata["result"][0]["params"]["pm1"][0]["value"])+ "\n"
+		pm2 = apidata["result"][0]["params"]["pm1"][0]["value"]
+		pm25 = "Pm25 : " + str(apidata["result"][0]["params"]["pm25"][0]["value"])+ "\n"
+		pm10 = "Pm10 : " + str(apidata["result"][0]["params"]["pm10"][0]["value"])+ "\n"
+	except:
+		tsp = "0"
+		pm1 = "0"
+		pm2 = 0
+		pm25 = "0"
+		pm10 = "0"
 	dataTaken = apidata["result"][0]["params"]["pm10"][0]["datetime"].split('T')
 	d1 = timeCalculate(dataTaken)
 	current = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
