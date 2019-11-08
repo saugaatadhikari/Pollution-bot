@@ -127,7 +127,7 @@ def station(original):
 	return stationId
 
 @app.route('/data/<userphrase>')
-def getAirQuality(userphrase):
+def getAirQualityData(userphrase):
 	stationId = userphrase
 	url = "http://realtime-api.opendatanepal.com/airquality/api/latest?id="+str(stationId)+"&params=pm25,pm10,pm1,tsp&coordinate=false"
 	response = requests.get(url)
