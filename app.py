@@ -53,6 +53,8 @@ def conclusion(pm2):
 		conclusionMessage = "unhealthy"
 	elif pm2 > 200:
 		conclusionMessage = "hazardous"
+	else 
+		conclusionMessage = "not available"
 	return "The air quality is "+ conclusionMessage
 
 def dataMessage(diff):
