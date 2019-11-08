@@ -23,15 +23,14 @@ def getAirQuality(userphrase):
 		pm2 = apidata["result"][0]["params"]["pm1"][0]["value"]
 		pm25 = "Pm25 : " + str(apidata["result"][0]["params"]["pm25"][0]["value"])+ "\n"
 		pm10 = "Pm10 : " + str(apidata["result"][0]["params"]["pm10"][0]["value"])+ "\n"
-		dataTaken = apidata["result"][0]["params"]["pm10"][0]["datetime"].split('T')
 	except:
 		tsp = "0"
 		pm1 = "0"
 		pm2 = 0
 		pm25 = "0"
 		pm10 = "0"
-		dataTaken = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-		dataTaken = dataTaken - timedelta(hours=5, minutes=45)
+	dataTaken = apidata["result"][0]["params"]["pm10"][0]["datetime"].split('T')
+	print(dataTaken)
 	d1 = timeCalculate(dataTaken)
 	current = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 	currentTime = datetime.strptime(current,'%Y-%m-%d %H:%M:%S')
