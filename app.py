@@ -133,27 +133,6 @@ def station(original):
 
 	return stationId
 
-@app.route('/data/<userphrase>')
-def getAirQualityData(userphrase):
-	stationId = userphrase
-	url = "http://realtime-api.opendatanepal.com/airquality/api/latest?id="+str(stationId)+"&params=pm25,pm10,pm1,tsp&coordinate=false"
-	response = requests.get(url)
-	apidata = response.json()
-	stationName = str(apidata["result"][0]["stationName"])
-	tsp = "TSP : "+ str(apidata["result"][0]["params"]["tsp"][0]["value"]) + "\n"
-	pm1 = "Pm1 : " + str(apidata["result"][0]["params"]["pm1"][0]["value"])+ "\n"
-	pm2 = apidata["result"][0]["params"]["pm1"][0]["value"]
-	pm25 = "Pm25 : " + str(apidata["result"][0]["params"]["pm25"][0]["value"])+ "\n"
-	pm10 = "Pm10 : " + str(apidata["result"][0]["params"]["pm10"][0]["value"])+ "\n"
-	dataTaken = apidata["result"][0]["params"]["pm10"][0]["datetime"].split('T')
-	d1 = timeCalculate(dataTaken)
-	current = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-	currentTime = datetime.strptime(current,'%Y-%m-%d %H:%M:%S')
-	diff = relativedelta(currentTime, d1)
-	dataMessages = dataMessage(diff)
-	apiDataExtracted ="The latest Air Quality data of " + stationName +" is: \n" + tsp + pm1 + pm25 + pm10 + "\n" + conclusion(pm2) + "\n"+ dataMessages+ "(" + str(d1) + ")" 
-	return apiDataExtracted
-
 @app.route('/')
 def index():
 	return "<h1> Welcome to our Server <h1>"
