@@ -52,17 +52,20 @@ def timeCalculate(dataTaken):
 	return d1
 
 def conclusion(pm2):
-	if pm2 > 0 and pm2 < 51:
-		conclusionMessage = "good."
-	elif pm2 > 50 and pm2 < 101:
-		conclusionMessage = "moderate."
-	elif pm2 > 100 and pm2 < 151:
-		conclusionMessage = "unhealthy for sensitive groups."
-	elif pm2 > 150 and pm2 < 201:
-		conclusionMessage = "unhealthy"
-	elif pm2 > 200:
-		conclusionMessage = "hazardous"
-	else :
+	try: 
+		if pm2 > 0 and pm2 < 51:
+			conclusionMessage = "good."
+		elif pm2 > 50 and pm2 < 101:
+			conclusionMessage = "moderate."
+		elif pm2 > 100 and pm2 < 151:
+			conclusionMessage = "unhealthy for sensitive groups."
+		elif pm2 > 150 and pm2 < 201:
+			conclusionMessage = "unhealthy"
+		elif pm2 > 200:
+			conclusionMessage = "hazardous"
+		else :
+			conclusionMessage = "not available"
+	except:
 		conclusionMessage = "not available"
 	return "The air quality is "+ conclusionMessage
 
