@@ -1,6 +1,5 @@
 # main program
 from flask import Flask
-import os
 import json
 import requests
 from datetime import datetime
@@ -21,7 +20,7 @@ def getAirQuality(userphrase):
 		tsp = "TSP : "+ str(apidata["result"][0]["params"]["tsp"][0]["value"]) + "\n"
 		pm1 = "Pm1 : " + str(apidata["result"][0]["params"]["pm1"][0]["value"])+ "\n"
 		pm2 = apidata["result"][0]["params"]["pm1"][0]["value"]
-		pm25 = "Pm25 : " + str(apidata["result"][0]["params"]["pm25"][0]["value"])+ "\n"
+		pm25 = "Pm25 : " + str(pm2)+ "\n"
 		pm10 = "Pm10 : " + str(apidata["result"][0]["params"]["pm10"][0]["value"])+ "\n"
 		dataTaken = apidata["result"][0]["params"]["pm10"][0]["datetime"].split('T')
 		d1 = timeCalculate(dataTaken)
@@ -53,15 +52,17 @@ def timeCalculate(dataTaken):
 
 def conclusion(pm2):
 	try: 
-		if pm2 > 0 and pm2 < 51:
+		if pm2 > 0 and pm2 < 12:
 			conclusionMessage = "good."
-		elif pm2 > 50 and pm2 < 101:
+		elif pm2 >= 12 and pm2 < 35.5:
 			conclusionMessage = "moderate."
-		elif pm2 > 100 and pm2 < 151:
+		elif pm2 >= 35.5 and pm2 < 55.5:
 			conclusionMessage = "unhealthy for sensitive groups."
-		elif pm2 > 150 and pm2 < 201:
+		elif pm2 >= 55.5 and pm2 < 150.5:
 			conclusionMessage = "unhealthy"
-		elif pm2 > 200:
+		elif pm2 >= 150.5 and pm2 < 250.5:
+			conclusionMessage = "very unhealthy"
+		elif pm2 >= 250.5:
 			conclusionMessage = "hazardous"
 		else :
 			conclusionMessage = "not available"
