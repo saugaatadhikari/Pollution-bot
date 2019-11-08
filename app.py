@@ -67,61 +67,61 @@ def dataMessage(diff):
 
 def station(original):
 	original = original.lower()
-	if original == "Bhaisipati":
+	if original == "bhaisipati":
 		stationId = 37
 
-	elif original == "Bhaktpur":
+	elif original == "bhaktpur":
 		stationId = 29
 
-	elif original == "DHMPkr":
+	elif original == "dhmpkr":
 		stationId = 28
 
-	elif original == "Dang":
+	elif original == "dang":
 		stationId = 9
 
-	elif original == "Dhulikhel":
+	elif original == "dhulikhel":
 		stationId = 40	
 
-	elif original == "USEmb":
+	elif original == "usemb":
 		stationId = 33
 
-	elif original == "GBSPkr":
+	elif original == "gbspkr":
 		stationId = 35
 
-	elif original == "Lumbini":
+	elif original == "lumbini":
 		stationId = 42
 
-	elif original == "Nepalgunj":
+	elif original == "nepalgunj":
 		stationId = 16
 
-	elif original == "PhoDurKtm":
+	elif original == "phodurktm":
 		stationId = 11
 
-	elif original == "PUPkr":
+	elif original == "pupkr":
 		stationId = 43
 
-	elif original == "Pulchowk":
+	elif original == "pulchowk":
 		stationId = 32
 
-	elif original == "Ratnapark":
+	elif original == "ratnapark":
 		stationId = 36
 
-	elif original == "Sauraha":
+	elif original == "sauraha":
 		stationId = 34
 
-	elif original == "Simara":
+	elif original == "simara":
 		stationId = 7
 
-	elif original == "Surkhet":
+	elif original == "surkhet":
 		stationId = 26
 
-	elif original == "Dhankuta":
+	elif original == "dhankuta":
 		stationId = 25
 
-	elif original == "Jhumka":
+	elif original == "jhumka":
 		stationId = 39
 
-	elif original == "Shankapark":
+	elif original == "shankapark":
 		stationId = 41
 
 	return stationId
