@@ -66,6 +66,7 @@ def dataMessage(diff):
 
 
 def station(original):
+	original = original.lower()
 	if original == "Bhaisipati":
 		stationId = 37
 
