@@ -78,6 +78,8 @@ def dataMessage(diff):
 		message += str(diff.hours) + " hours "
 	if diff.minutes > 0: 
 		message += str(diff.minutes) + " minutes "
+	else:
+		message += "no time"
 	return message + 'ago '
 
 
